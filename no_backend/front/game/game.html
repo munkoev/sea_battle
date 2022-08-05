@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="game.css">
+        <script src="game.js" type="module"></script>
+    </head>
+    <body>
+        <div w3-include-html="../header/header.html"></div>
+        <main>
+            <div class="wrapper">
+                <div class="halfside">
+                    <div class="field_wrapper">
+                        <canvas width="400" height="400" id="canvas1"></canvas>
+                    </div>
+                    <div class="field_bottom not_selectable" id="field_bottom">
+                      <div class="ship_wrapper selected" id="ship_4">
+                        <div><img src="resources/4.svg" /></div>
+                        <div>4-cell ship</div>
+                        <div class="selected to_hide" id="ship_4_h" data-id="4_h">horizontal</div>
+                        <div class="not_selected to_hide" id="ship_4_v" data-id="4_v">vertical</div>
+                        <div class="left_text" id="x4">left: 1</div>
+                      </div>
+                      <div class="ship_wrapper" id="ship_3">
+                        <div><img src="resources/3.svg" /></div>
+                        <div>3-cell ship</div>
+                        <div class="selected to_hide" id="ship_3_h">horizontal</div>
+                        <div class="not_selected to_hide"  id="ship_3_v">vertical</div>
+                        <div class="left_text" id="x3">left: 2</div>
+                      </div>
+                      <div class="ship_wrapper" id="ship_2">
+                        <div><img src="resources/2.svg" /></div>
+                        <div>2-cell ship</div>
+                        <div class="selected to_hide" id="ship_2_h">horizontal</div>
+                        <div class="not_selected to_hide" id="ship_2_v">vertical</div>
+                        <div class="left_text" id="x2">left: 3</div>
+                      </div>
+                      <div class="ship_wrapper" id="ship_1">
+                        <div><img src="resources/1.svg" /></div>
+                        <div>1-cell ship</div>
+                        <div class="selected to_hide" id="ship_1_h">horizontal</div>
+                        <div class="not_selected to_hide invisible" id="ship_1_v">vertical</div>
+                        <div class="left_text" id="x1">left: 4</div>
+                      </div>
+                    </div>
+                </div>
+                <div class="halfside">
+                  <div class="field_wrapper">
+                      <canvas width="400" height="400" id="canvas2"></canvas>
+                  </div>
+                  <button type="button" class="btn btn-primary" style="margin-top: 40px" id="play_btn">Play</button>
+                  <button type="button" class="btn btn-primary" style="margin-top: 40px" id="play_random_btn">Play random</button>
+                  <div class="field_bottom not_selectable invisible" id="enemy_stats">
+                    <div class="ship_wrapper" id="ship_4">
+                      <div><img src="resources/4.svg" /></div>
+                      <div>4-cell ship</div>
+                      <div class="" id="ship_4_h" data-id="4_h"></div>
+                      <div class="" id="ship_4_v" data-id="4_v"></div>
+                      <div class="right_text" id="x4">left: 1</div>
+                    </div>
+                    <div class="ship_wrapper" id="ship_3">
+                      <div><img src="resources/3.svg" /></div>
+                      <div>3-cell ship</div>
+                      <div class="" id="ship_3_h"></div>
+                      <div class=""  id="ship_3_v"></div>
+                      <div class="right_text" id="x3">left: 2</div>
+                    </div>
+                    <div class="ship_wrapper" id="ship_2">
+                      <div><img src="resources/2.svg" /></div>
+                      <div>2-cell ship</div>
+                      <div class="" id="ship_2_h"></div>
+                      <div class="" id="ship_2_v"></div>
+                      <div class="right_text" id="x2">left: 3</div>
+                    </div>
+                    <div class="ship_wrapper" id="ship_1">
+                      <div><img src="resources/1.svg" /></div>
+                      <div>1-cell ship</div>
+                      <div class="" id="ship_1_h"></div>
+                      <div class="" id="ship_1_v"></div>
+                      <div class="right_text" id="x1">left: 4</div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center wrapper" style="min-height: 200px;">
+              <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                <div class="toast-header">
+                  <strong class="mr-auto">Error</strong>
+                  <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="toast-body">
+                  There are unallocated ships left 
+                </div>
+              </div>
+            </div>
+
+        </main>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      </body>
+</html>
